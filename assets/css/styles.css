@@ -35,4 +35,10 @@ input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(11,
 .tool h3{margin:0 0 8px;color:var(--brand)}
 .tool p{margin:0;color:#425466}
 
+/* Form consent and messages */
+.consent{display:block;margin:10px 0 14px;font-size:13px;color:var(--muted)}
+.consent input[type="checkbox"]{margin-right:8px;transform:translateY(1px)}
+.success{padding:12px;border-radius:8px;background:#e6f9ef;color:#064e3b;border:1px solid #b7f0d2;margin-bottom:12px}
+.error{padding:12px;border-radius:8px;background:#fff5f5;color:#771111;border:1px solid #ffd6d6;margin-bottom:12px}
+
 

@@ -7,6 +7,7 @@
   <meta name="description" content="Quick, realistic AdSense RPM estimates for small sites. Try a traffic sample and see likely earnings.">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script src="/assets/js/gtag.js"></script>
+  <script src="/assets/js/events.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -71,8 +72,18 @@
       patterns.slice(0,3).forEach(p => { const li=document.createElement('li'); li.textContent=makeText(t,p); list.appendChild(li); });
       document.getElementById('results').style.display='block'; document.getElementById('emailCTA').style.display='block';
       document.getElementById('hiddenTopic').value = t;
+      try { trackMicroWin(t); } catch(e){}
     });
     document.getElementById('tryMore').addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('topic').value=''; document.getElementById('topic').focus(); document.getElementById('results').style.display='none'; document.getElementById('emailCTA').style.display='none'; });
+
+    // track email form submission
+    const emailForm = document.querySelector('#emailCTA form');
+    if (emailForm) {
+      emailForm.addEventListener('submit', function(e){
+        const topic = document.getElementById('hiddenTopic') ? document.getElementById('hiddenTopic').value : '';
+        try{ trackEmailSignup(topic); }catch(e){}
+      });
+    }
   </script>
 </body>
 </html>

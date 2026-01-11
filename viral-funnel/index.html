@@ -6,6 +6,7 @@
   <title>Viral Hook Spark — Try One Now</title>
   <meta name="description" content="Try a short viral-hook generator. Enter any topic and get 3 scroll-stopping hooks in seconds. Early access email capture after a micro-win.">
   <script src="/assets/js/gtag.js"></script>
+  <script src="/assets/js/events.js"></script>
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
@@ -91,6 +92,7 @@
       document.getElementById('results').style.display = 'block';
       document.getElementById('emailCTA').style.display = 'block';
       document.getElementById('hiddenTopic').value = t;
+      try { trackMicroWin(t); } catch(e){}
     });
 
     document.getElementById('tryMore').addEventListener('click', (e) => {
@@ -99,6 +101,13 @@
       document.getElementById('topic').focus();
       document.getElementById('results').style.display = 'none';
       document.getElementById('emailCTA').style.display = 'none';
+    });
+
+    // track email form submit
+    const vfEmailForm = document.querySelector('#emailCTA form');
+    if (vfEmailForm) vfEmailForm.addEventListener('submit', function(){
+      const tp = document.getElementById('hiddenTopic') ? document.getElementById('hiddenTopic').value : '';
+      try { trackEmailSignup(tp); } catch(e){}
     });
   </script>
 </body>

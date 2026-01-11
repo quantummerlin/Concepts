@@ -1,0 +1,26 @@
+{
+  "funnels": [
+    {
+      "slug": "adsense-funnel",
+      "title": "AdSense RPM Spark — Estimate Real Earnings",
+      "description": "Quick, realistic AdSense RPM estimates for small sites. Try a traffic sample and see likely earnings.",
+      "header_links": [["AdSense","/adsense-rpm/"],["Home","/"]],
+      "patterns": [
+        "If your site gets {topic} visitors, here's the likely monthly revenue",
+        "Why {topic} topics often overestimate ad income (and how to avoid it)",
+        "Simple RPM ranges that real creators use for {topic}"
+      ]
+    },
+    {
+      "slug": "traffic-funnel",
+      "title": "Traffic to $100 — Reverse Engineer Your Goal",
+      "description": "Enter a niche or example and get a quick traffic target to hit $100/day with realistic CTR/RPM.",
+      "header_links": [["Traffic","/traffic-for-100/"],["Home","/"]],
+      "patterns": [
+        "To hit $100/day with {topic}, you probably need X visitors at Y conversion",
+        "Most people forget this about {topic} niches — conversion matters more than traffic",
+        "A simple CTR/RPM combo that shows how close {topic} is to $100/day"
+      ]
+    }
+  ]
+}

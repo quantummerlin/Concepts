@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AdSense RPM Spark — Estimate Real Earnings</title>
+  <meta name="description" content="Quick, realistic AdSense RPM estimates for small sites. Try a traffic sample and see likely earnings.">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW4LGE7L1T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VW4LGE7L1T');</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="/">Concepts</a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/adsense-rpm/">AdSense</a>
+<a href="/">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap container">
+    <h1>AdSense RPM Spark — Estimate Real Earnings</h1>
+    <h2>Quick, realistic AdSense RPM estimates for small sites. Try a traffic sample and see likely earnings.</h2>
+
+    <form id="topicForm" onsubmit="return false;" aria-label="Generate">
+      <label for="topic">Enter a short topic:</label>
+      <input id="topic" name="topic" type="text" placeholder="Type a short topic" required>
+      <button id="generate" class="btn">Generate</button>
+    </form>
+
+    <section id="results" style="display:none;margin-top:18px">
+      <h3>Instant Results</h3>
+      <ol id="resultList"></ol>
+      <div style="margin-top:12px">
+        <a id="tryMore" class="btn" href="#">Try another</a>
+        <a class="btn" href="/">Back</a>
+      </div>
+    </section>
+
+    <div id="emailCTA" style="display:none;margin-top:18px">
+      <p class="small">Want more? Get the full kit emailed (free early access).</p>
+      <form action="https://formspree.io/f/mgowrolb" method="post" aria-label="Get full kit">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="hidden" name="topic" id="hiddenTopic">
+        <button type="submit">Send Me The Kit</button>
+      </form>
+    </div>
+
+    <div class="faq">
+      <h2>Why this works</h2>
+      <p class="small">Short, immediate wins keep users engaged. This template is a micro-win funnel.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2026 Concepts</div>
+      <div><a href="mailto:hello@quantummerlin.com">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // templates array will be injected by generator as `window.__F_PATTERNS = [...]`
+    const patterns = window.__F_PATTERNS || ['Example {topic} pattern 1','Example {topic} pattern 2','Example {topic} pattern 3'];
+    function makeText(topic, pattern){return pattern.replace(/{topic}/g, topic)}
+    document.getElementById('generate').addEventListener('click', ()=>{
+      const t = document.getElementById('topic').value.trim(); if(!t) return;
+      const list = document.getElementById('resultList'); list.innerHTML='';
+      patterns.slice(0,3).forEach(p => { const li=document.createElement('li'); li.textContent=makeText(t,p); list.appendChild(li); });
+      document.getElementById('results').style.display='block'; document.getElementById('emailCTA').style.display='block';
+      document.getElementById('hiddenTopic').value = t;
+    });
+    document.getElementById('tryMore').addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('topic').value=''; document.getElementById('topic').focus(); document.getElementById('results').style.display='none'; document.getElementById('emailCTA').style.display='none'; });
+  </script>
+</body>
+</html>

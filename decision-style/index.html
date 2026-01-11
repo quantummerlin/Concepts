@@ -22,13 +22,12 @@
     h2{font-size:15px;color:var(--muted);margin:0 0 18px}
     ul{padding-left:20px}
     li{margin-bottom:10px}
-    form{margin-top:20px}
-    input[type=text], input[type=email]{width:100%;padding:12px;border:1px solid #ece9ff;border-radius:8px;font-size:15px;margin-bottom:12px}
-    button{background:var(--brand);color:#fff;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;font-weight:600;transition:all 0.2s ease;width:100%}
+    form{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+    input[type=email]{flex:1;min-width:220px;padding:12px;border:1px solid #ece9ff;border-radius:8px;font-size:15px}
+    button{background:var(--brand);color:#fff;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;font-weight:600;transition:all 0.2s ease}
     button:hover{background:#5a3eb5;transform:translateY(-1px);box-shadow:0 4px 12px rgba(108,75,211,0.25)}
     button:active{transform:translateY(0)}
-    input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(108,75,211,0.1)}
-    .saved{margin-top:12px;color:#28a745;font-size:14px}
+    input[type=email]:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(108,75,211,0.1)}
     .small{font-size:13px;color:var(--muted);margin-top:12px}
     .faq{margin-top:28px}
     .faq h3{margin:12px 0 6px;font-size:15px}
@@ -52,15 +51,12 @@
       <strong>Example result:</strong> "Analytic Finisher — you research thoroughly but delay final steps. Try a 48‑hour rule to force a decision and reduce overthinking." 
     </div>
 
-    <form id="profileForm">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="text" name="birthName" placeholder="Your birth name (for energy alignment)" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <button type="submit">Save Profile Locally</button>
+    <form action="https://formspree.io/f/mgowrolb" method="post" aria-label="Decision style early access signup">
+      <input type="email" name="email" placeholder="Enter your email to get early access" required>
+      <button type="submit">Get Early Access — Free</button>
     </form>
 
-    <p class="small">Your profile saves locally on your device. No information is sent to us.</p>
-    <div id="savedMessage" class="saved" style="display:none;">Profile saved successfully!</div>
+    <p class="small">Early access includes the static quiz (HTML) and a short guide with recommended exercises. No spam — unsubscribe anytime.</p>
 
     <div class="faq">
       <h2>Frequently Asked Questions</h2>
@@ -76,31 +72,5 @@
 
     <div class="footer">Reply to the welcome email with a decision you’re struggling with and I’ll share a tailored quick checklist.</div>
   </div>
-
-  <script>
-    // Load saved profile
-    const savedProfile = localStorage.getItem('decisionStyleProfile');
-    if (savedProfile) {
-      const profile = JSON.parse(savedProfile);
-      document.querySelector('input[name="name"]').value = profile.name;
-      document.querySelector('input[name="birthName"]').value = profile.birthName;
-      document.querySelector('input[name="email"]').value = profile.email;
-    }
-
-    document.getElementById('profileForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = new FormData(this);
-      const profile = {
-        name: formData.get('name'),
-        birthName: formData.get('birthName'),
-        email: formData.get('email')
-      };
-      localStorage.setItem('decisionStyleProfile', JSON.stringify(profile));
-      document.getElementById('savedMessage').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('savedMessage').style.display = 'none';
-      }, 3000);
-    });
-  </script>
 </body>
 </html>
